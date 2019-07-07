@@ -1,0 +1,28 @@
+.btn {
+    &.vs-btn {
+        color: #ffffff;
+        background-color: $vs_main_gray;
+        border-radius: 0;
+        text-transform: uppercase;
+        font-weight: bold;
+
+        &:hover {
+            background-color: #000000;
+        }
+
+        &:disabled {
+            opacity: 1;
+            background-color: $vs_main_gray_light;
+        }
+    }
+}
+
+a {
+    &.vs-link {
+        font-weight: bold;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}

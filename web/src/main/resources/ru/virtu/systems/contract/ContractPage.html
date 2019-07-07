@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org">
+<wicket:extend>
+    <form wicket:id="form">
+        <div class="vs-feedback" wicket:id="feedback"></div>
+        <div wicket:id="calculationPanel"></div>
+
+        <br>
+        <div wicket:id="insuredPanel"></div>
+
+        <div class="row">
+            <div class="form-group row col-6">
+                <label class="fg-label col-sm-4" wicket:for="contractNo">
+                    <wicket:label/>
+                </label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control vs-input" wicket:id="contractNo"/>
+                </div>
+            </div>
+            <div class="form-group row col-6">
+                <label class="fg-label col-sm-4">
+                    <wicket:message key="createDate"/>
+                </label>
+                <div class="col-sm-6" wicket:id="createDate"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group row col-12">
+                <label class="fg-label col-sm-2" wicket:for="additionalInfo">
+                    <wicket:label/>
+                </label>
+                <div class="col-sm-10">
+                    <textarea wicket:id="additionalInfo" rows="3" class="form-control textarea-max-width-12"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center">
+                <button class="btn vs-btn" style="margin-left: 5px;" wicket:id="save">Сохранить</button>
+                <button class="btn vs-btn" style="margin-left: 5px;" wicket:id="goContractsPage">К списку договоров</button>
+            </div>
+        </div>
+    </form>
+</wicket:extend>
+</html>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org" xml:lang="ru" lang="ru">
+<body>
+<wicket:extend>
+    <div class="ft-search-container">
+        <form wicket:id="searchForm">
+            <div class="row">
+                <div class="form-group row col-12">
+                    <label class="fg-label col-sm-1" wicket:for="lastName">
+                        <wicket:label/>
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control vs-input" wicket:id="lastName"/>
+                    </div>
+                    <label class="fg-label col-sm-1" wicket:for="firstName">
+                        <wicket:label/>
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control vs-input" wicket:id="firstName"/>
+                    </div>
+                    <label class="fg-label col-sm-2" wicket:for="middleName">
+                        <wicket:label/>
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control vs-input" wicket:id="middleName"/>
+                    </div>
+                    <div>
+                        <a href="#" wicket:id="searchLink"><i class="fas fa-search"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-12 text-center">
+                    <button class="btn vs-btn" style="margin-left: 5px;" wicket:id="select">Выбрать</button>
+                    <button class="btn vs-btn" style="margin-left: 5px;" wicket:id="createLink">Новый</button>
+                    <button class="btn vs-btn" style="margin-left: 5px;" wicket:id="closeLink">Закрыть</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <table class="table table-striped ft-table" wicket:id="table"></table>
+</wicket:extend>
+</body>
+</html>

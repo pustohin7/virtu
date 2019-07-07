@@ -5,6 +5,7 @@ import org.apache.wicket.markup.head.MetaDataHeaderItem;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.request.resource.ResourceReference;
+import ru.virtu.systems.resource.VSCSS;
 import ru.virtu.systems.resource.VSJS;
 
 /**
@@ -22,20 +23,20 @@ public class BasePage extends WebPage {
     @Override
     public void renderHead(IHeaderResponse response) {
         // css
-        response.render(VSJS.bootstrap());
+        response.render(VSCSS.bootstrap());
 
-   /*     response.render(FTCSS.faCommon());
-        response.render(FTCSS.faSolid());
-        response.render(FTCSS.faRegular());
-        response.render(FTCSS.faBrands());
-        response.render(FTCSS.faV4Shims());
+        response.render(VSCSS.faCommon());
+        response.render(VSCSS.faSolid());
+        response.render(VSCSS.faRegular());
+        response.render(VSCSS.faBrands());
+        response.render(VSCSS.faV4Shims());
 
-        response.render(FTCSS.ftStyles());*/
+        response.render(VSCSS.ftStyles());
 
         // js
         response.render(VSJS.jQuery());
         response.render(VSJS.bootstrap());
-//        response.render(VSJS.ftUtils());
+        response.render(VSJS.ftUtils());
 
         // favicons
 /*        response.render(new FaviconHeaderItem("icon", "32x32", FTImages.favicon32()));

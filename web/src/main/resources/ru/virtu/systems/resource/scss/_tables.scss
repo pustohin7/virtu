@@ -1,0 +1,29 @@
+.vs-table {
+    line-height: 1;
+
+    thead {
+        color: #ffffff;
+        background-color: $vs_main_gray;
+    }
+
+    tbody {
+        tr:hover {
+            background-color: rgba(0, 0, 0, 0.1) !important;
+        }
+    }
+
+    .pagination {
+        float: right;
+
+        .page-link {
+            border: none;
+            font-weight: bold;
+            background-color: transparent;
+
+            &:focus, &:active {
+                outline: 0;
+                box-shadow: none;
+            }
+        }
+    }
+}

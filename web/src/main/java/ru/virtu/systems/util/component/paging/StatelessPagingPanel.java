@@ -14,12 +14,12 @@ import ru.virtu.systems.util.model.LongPPModel;
 /**
  * @author Alexey Pustohin
  */
-public class PagingPanel<T extends Component & IPageableItems> extends Panel {
+public class StatelessPagingPanel<T extends Component & IPageableItems> extends Panel {
 
     private T pageable;
     private LongPPModel pageNumberModel;
 
-    public PagingPanel(String id, T pageable) {
+    public StatelessPagingPanel(String id, T pageable) {
         super(id);
         this.pageable = pageable;
 
@@ -32,24 +32,29 @@ public class PagingPanel<T extends Component & IPageableItems> extends Panel {
         super.onInitialize();
 
         pageNumberModel = new LongPPModel(getPage(), "pg", 0L);
+        add(new WebMarkupContainer("notResults").setVisible(pageNumberModel.getObject() == 0L));
         pageable.setCurrentPage(pageNumberModel.getObject());
     }
 
     @Override
     protected void onBeforeRender() {
-        addOrReplace(new PageSwitcherLink(
+        long pageCount = pageable.getPageCount();
+
+        WebMarkupContainer pageContainer = new WebMarkupContainer("pageContainer");
+        add(pageContainer.setVisible(pageCount != 0L));
+        pageContainer.addOrReplace(new PageSwitcherLink(
                 "prevPage", "<i class=\"fas fa-chevron-left\"></i>",
                 () -> Math.max(pageNumberModel.getObject() - 1, 0))
         );
-        addOrReplace(new PageSwitcherLink(
+        pageContainer.addOrReplace(new PageSwitcherLink(
                 "nextPage", "<i class=\"fas fa-chevron-right\"></i>",
                 () -> Math.min(pageNumberModel.getObject() + 1, (int) pageable.getPageCount() - 1)
         ));
 
         RepeatingView pages = new RepeatingView("pages");
-        addOrReplace(pages);
+        pageContainer.addOrReplace(pages);
 
-        long pageCount = pageable.getPageCount();
+
 
         if (pageCount <= 11) {
             // Если страниц 11 и меньше, то просто рисуем все

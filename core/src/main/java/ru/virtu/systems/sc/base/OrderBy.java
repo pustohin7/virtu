@@ -2,6 +2,9 @@ package ru.virtu.systems.sc.base;
 
 import java.io.Serializable;
 
+/**
+ * @author Alexey Pustohin
+ */
 public class OrderBy implements Serializable {
 
     private String property;

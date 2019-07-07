@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * @author Alexey Pustohin
+ */
 public class BaseSC implements Serializable {
 
     private Long offset;

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <entry key="contractNo">Номер договора</entry>
+    <entry key="createDate">Дата заключения</entry>
+    <entry key="additionalInfo">Комментарий</entry>
+    <entry key="insured.required">'Страхователь' обязателен к заполнению</entry>
+</properties>

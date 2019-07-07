@@ -1,0 +1,68 @@
+@font-face {
+    font-family: "Proxima Nova";
+    src: url("../fonts/ProximaNova/ProximaNova-Regular.ttf");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Proxima Nova";
+    src: url("../fonts/ProximaNova/ProximaNova-Bold.ttf");
+    font-weight: bold;
+}
+
+body {
+    background-color: $bg_color;
+    color: $text_color;
+    font-family: "Proxima Nova", monospace
+}
+
+.vs-main-container {
+    padding-top: 15px;
+    padding-bottom: 45px;
+    min-height: calc(100vh - 339px); // TODO May be changed due to catalog count in bottom
+}
+
+/*
+    Common classes
+ */
+
+// TODO May we generate this with scss?
+.mrgn-btm-15 {
+    margin-bottom: 15px;
+}
+
+.mrgn-btm-30 {
+    margin-bottom: 30px;
+}
+
+.mrgn-top-15 {
+    margin-top: 15px;
+}
+
+.mrgn-top-30 {
+    margin-top: 30px;
+}
+
+
+.vs-delimiter {
+    border-bottom: solid 1px $border_color;
+}
+
+.vs-small-label {
+    font-size: 14px;
+    color: $lighter_text_color;
+}
+
+.vs-no-results-label {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: $lighter_text_color;
+}
+
+.vs-back {
+    font-weight: bold;
+
+    &:hover {
+        text-decoration: none;
+    }
+}

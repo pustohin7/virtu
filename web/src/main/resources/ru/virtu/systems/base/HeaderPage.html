@@ -1,46 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org">
 <wicket:head>
+    <script type="text/javascript">
+        var headerFixer = function() {
+            if ($(window).scrollTop() >= $('.vs-header-container').outerHeight()) {
+                $('#vsNavbarFixable').addClass('vs-navbar-fixed');
+                $('body').css('padding-top', $('.vs-navbar').outerHeight());
+            }
+            else {
+                $('#vsNavbarFixable').removeClass('vs-navbar-fixed'); $('body').css('padding-top', "");
+            }
+        };
+
+        $(document).ready(function () {
+            var collapses =  $('.collapse');
+
+            $(window).scroll(headerFixer);
+            $(window).resize(headerFixer);
+            collapses.on('shown.bs.collapse', headerFixer);
+            collapses.on('hidden.bs.collapse', headerFixer);
+        })
+    </script>
 </wicket:head>
 <wicket:extend>
-     <header class="container ft-header-container text-center">
-     <div class="row">
-         <div class="col-md-4 order-md-1 ft-header-side-content d-none d-md-block">
-             <span class="ft-header-side-big-label"><strong>Магазин по всей России</strong></span><br/>
-             <span class="ft-header-side-big-label"><i class="fas fa-phone"></i>&nbsp;<strong>8 (800) 250-42-42</strong></span><br/>
-             <span class="ft-header-side-small-label">Ответим с 8:00 до 16:00 по Московскому времени. Звонок бесплатный.</span>
-         </div>
-         <div class="col-9 order-2 ft-header-side-mobile-content d-block d-md-none">
-             <span class="ft-header-side-big-label"><strong>Меховые традиции</strong></span><br/>
-             <span class="ft-header-side-big-label"><strong>Магазин по всей России</strong></span>
-         </div>
-
-         <div class="col-3 col-md-4 order-1 order-md-2">
-         </div>
-
-         <div class="col-md-4 order-md-3 d-none d-md-block ft-header-side-content">
-         </div>
-     </div>
- </header>
-    <wicket:child/>
-    <footer class="container ft-footer">
+    <header class="container vs-header-container text-center">
         <div class="row">
-            <div class="col-12 col-md-4">
-                <h5>Помощь и поддержка</h5>sta
-
-            </div>
-            <div class="col-12 col-md-4">
-                <h5>Наши изделия</h5>
-            </div>
-            <div class="col-12 col-md-4">
-                <div class="d-block d-md-none">
-                    <h5>Горячая линия <br>8 (800) 250-42-42</h5>
-                    <span>Ответим с 8:00 до 16:00 по Московскому времени.<br>Звонок бесплатный.</span>
-                </div>
-
-                <h5>Мы в социальных сетях</h5>
-            </div>
+            <div class="col-12 vs-header-side-big-label">Тестовое задание</div>
         </div>
-    </footer>
+    </header>
+    <nav class="navbar navbar-expand-lg vs-navbar" id="vsNavbarFixable">
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mx-auto">
+                <li wicket:id="home"><a class="nav-item" href="#" wicket:id="link">Главная</a></li>
+                <li wicket:id="contractsPage"><a class="nav-item" wicket:id="link">Договоры</a></li>
+            </ul>
+        </div>
+    </nav>
+    <wicket:child/>
 </wicket:extend>
 </html>

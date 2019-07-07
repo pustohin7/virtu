@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <entry key="insuredFio">ФИО</entry>
+    <entry key="birthDate">Дата рождения</entry>
+    <entry key="docSerial">Серия</entry>
+    <entry key="docNumber">Номер</entry>
+    <entry key="passport">Паспорт</entry>
+    <entry key="selectInsured">Выбрать</entry>
+    <entry key="editInsured">Изменить</entry>
+</properties>
