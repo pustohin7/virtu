@@ -4,4 +4,5 @@
     <entry key="contractNo">Номер договора</entry>
     <entry key="createDate">Дата заключения</entry>
     <entry key="additionalInfo">Комментарий</entry>
+    <entry key="insured.required">'Страхователь' обязателен к заполнению</entry>
 </properties>

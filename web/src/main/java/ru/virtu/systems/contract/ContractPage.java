@@ -9,6 +9,7 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.spring.injection.annot.SpringBean;
+import org.apache.wicket.validation.IValidator;
 import ru.virtu.systems.base.ContainerPage;
 import ru.virtu.systems.dto.Calculation;
 import ru.virtu.systems.dto.Contract;
@@ -18,6 +19,7 @@ import ru.virtu.systems.util.component.date.VSDateField;
 import ru.virtu.systems.util.component.form.VSFeedback;
 import ru.virtu.systems.util.component.link.StatelessAjaxSubmitLink;
 import ru.virtu.systems.util.component.link.VSAjaxLink;
+import ru.virtu.systems.util.component.validation.ContractNumberValidator;
 import ru.virtu.systems.util.model.LongPPModel;
 
 import java.time.LocalDate;
@@ -65,7 +67,7 @@ public class ContractPage extends ContainerPage {
 
         form.add(new InsuredPanel("insuredPanel", Model.of(contract)));
 
-        form.add(new TextField<>("contractNo").setRequired(true));
+        form.add(new TextField<>("contractNo").setRequired(true).add(new IValidator[]{new ContractNumberValidator()}));
         form.add(new VSDateField("createDate").setEnabled(false));
 
         form.add(new TextArea<>("additionalInfo"));
@@ -73,8 +75,14 @@ public class ContractPage extends ContainerPage {
         form.add(new StatelessAjaxSubmitLink("save", form){
             @Override
             protected void onSubmit(AjaxRequestTarget target, Form<?> form) {
+                Contract contractModelForm = (Contract) form.getModelObject();
+                if (contractModelForm.getInsured() == null) {
+                    form.error(getString("insured.required"));
+                    target.add(feedback);
+                    return;
+                }
                 try {
-                    contractService.save((Contract) form.getModelObject());
+                    contractService.save(contractModelForm);
                     setResponsePage(ContractsPage.class);
                 } catch (Exception e) {
                     form.error(e.getMessage());
