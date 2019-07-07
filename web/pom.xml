@@ -88,6 +88,11 @@
             <artifactId>wicketstuff-tinymce4</artifactId>
             <version>${wicket.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.googlecode.wicket-jquery-ui</groupId>
+            <artifactId>wicket-jquery-ui-core</artifactId>
+            <version>8.1.0</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -165,7 +170,7 @@
                 </dependencies>
             </plugin>
 
-           <!-- <plugin>
+            <plugin>
                 <groupId>nl.geodienstencentrum.maven</groupId>
                 <artifactId>sass-maven-plugin</artifactId>
                 <version>2.25</version>
@@ -179,8 +184,8 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <destination>${project.build.directory}/classes/java.ru/fur/traditions/resource/css</destination>
-                    <sassSourceDirectory>${project.basedir}/src/main/resources/java.ru/fur/traditions/resource/scss
+                    <destination>${project.build.directory}/classes/ru/virtu/systems/resource/css</destination>
+                    <sassSourceDirectory>${project.basedir}/src/main/resources/ru/virtu/systems/resource/scss
                     </sassSourceDirectory>
                     <inputEncoding>UTF-8</inputEncoding>
                     <outputEncoding>UTF-8</outputEncoding>
@@ -189,7 +194,7 @@
                         <include>**/fontawesome.scss</include>
                     </includes>
                 </configuration>
-            </plugin>-->
+            </plugin>
         </plugins>
     </build>
     

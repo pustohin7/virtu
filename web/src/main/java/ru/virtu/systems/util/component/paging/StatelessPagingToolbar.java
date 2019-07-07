@@ -10,9 +10,9 @@ import ru.virtu.systems.util.model.LambdaModel;
 /**
  * @author Alexey Pustohin
  */
-public class PagingToolbar extends AbstractToolbar {
+public class StatelessPagingToolbar extends AbstractToolbar {
 
-    public PagingToolbar(DataTable<?, ?> table) {
+    public StatelessPagingToolbar(DataTable<?, ?> table) {
         super(table);
     }
 
@@ -27,7 +27,7 @@ public class PagingToolbar extends AbstractToolbar {
         ));
         add(rowToSpan);
 
-        rowToSpan.add(new PagingPanel<DataTable>("pagingPanel", getTable()) {
+        rowToSpan.add(new StatelessPagingPanel<DataTable>("pagingPanel", getTable()) {
             @Override
             protected Component[] getComponentsToUpdate() {
                 return new Component[] { getTable() };
@@ -35,7 +35,7 @@ public class PagingToolbar extends AbstractToolbar {
 
             @Override
             protected boolean scrollToTopAfterPageSwitch() {
-                return PagingToolbar.this.scrollToTopAfterPageSwitch();
+                return StatelessPagingToolbar.this.scrollToTopAfterPageSwitch();
             }
         });
     }

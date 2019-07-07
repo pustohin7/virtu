@@ -1,6 +1,5 @@
 package ru.virtu.systems;
 
-
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import ru.virtu.systems.base.HeaderPage;
 
@@ -8,15 +7,10 @@ import ru.virtu.systems.base.HeaderPage;
  * @author Alexey Pustohin
  */
 public class HomePage extends HeaderPage {
-    public HomePage(final PageParameters parameters) {
-        super(parameters);
+    public HomePage() {
     }
 
-    @Override
-    protected void onInitialize() {
-        super.onInitialize();
-
-//        add(new CardOfferPanel("stockPanel").setVisible(isVisibleStockPanel()));
-//        add(new FTCarousel("carousel", getCarouselItems()));
+    public HomePage(PageParameters pageParameters) {
+        super(pageParameters);
     }
 }

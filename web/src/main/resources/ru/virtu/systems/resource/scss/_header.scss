@@ -1,0 +1,184 @@
+$header_bg_color: $vs_main_gray;
+$header_nav_color: $vs_main_gray_light;
+
+$header_big_label_color: #ffffff;
+$header_small_label_color: #ffffff;
+
+.vs-navbar {
+    background-color: $header_nav_color;
+    padding: 0;
+
+    .navbar-toggler {
+        &:focus {
+            outline: 0;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1.0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
+    }
+
+    // Regular links
+
+    a, .vs-navbar-icon {
+        color: $link_on_pink_color !important;
+        text-transform: uppercase;
+        font-weight: bold;
+
+        &:hover {
+            color: $link_on_pink_hover_color !important;
+            text-decoration: none;
+        }
+    }
+
+    li {
+        padding: 7px 15px;
+    }
+
+    // Dropdowns
+
+    .dropdown-menu {
+        background-color: $bg_color;
+        border: solid 1px $border_color;
+        border-radius: 0;
+        padding-bottom: 15px;
+
+        &.vs-registries-menu {
+            width: 600px;
+        }
+
+        &.vs-gallery-menu {
+            width: 300px;
+        }
+
+        a {
+            color: $text_color !important;
+            font-weight: normal;
+            text-transform: none;
+
+            &:hover {
+                color: $vs_main_gray_light !important;
+                text-decoration: none;
+            }
+        }
+
+        li {
+            padding: 5px 15px;
+        }
+    }
+}
+
+.vs-dropdown-header {
+    font-weight: bold;
+    padding: 10px 15px;
+}
+
+.vs-header-container {
+    margin: 0;
+    max-width: 100%;
+    background-color: $header_bg_color;
+    padding: 15px 30px;
+}
+
+.vs-header-logo {
+    width: 180px;
+    height: auto;
+    cursor: pointer;
+}
+
+.vs-header-mobile-logo {
+    width: 40px;
+    height: auto;
+    cursor: pointer;
+}
+
+.vs-navbar-fixed {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 10000;
+}
+
+.vs-header-side-content {
+    padding: 20px 0 0 0;
+
+    .vs-header-icon-link {
+        font-size: 40px;
+        color: $link_on_violet_color;
+        margin: 10px 15px;
+        line-height: 0.4;
+        cursor: pointer;
+
+        .vs-header-icon-link-label {
+            font-size: 16px;
+        }
+
+        &:hover {
+            color: $link_on_violet_hover_color;
+        }
+    }
+}
+
+.vs-header-side-big-label {
+    color: $header_big_label_color;
+    text-transform: uppercase;
+}
+
+.vs-header-side-small-label {
+    font-size: 12px;
+    color: $header_small_label_color;
+    display: block;
+    line-height: 1.3;
+}
+
+.vs-navbar-icon {
+    font-size: 30px;
+}
+
+// Mobile menus
+
+.vs-mobile-menu {
+    height: calc(100vh - 40px); // TODO 40px variable
+    overflow-y: auto;
+
+    .vs-navbar {
+        background-color: $bg_color;
+
+        // Обычные ссылки
+
+        a, .vs-navbar-icon {
+            color: $text_color !important;
+            font-weight: normal;
+
+            &:hover {
+                color: $vs_main_gray_light !important;
+                text-decoration: none;
+            }
+        }
+
+        li {
+            padding: 7px 15px;
+            border-bottom: solid 1px $border_color;
+        }
+
+        // Dropdowns
+
+        .dropdown-menu {
+            background-color: $bg_color;
+            border: none;
+
+            &.vs-registries-menu {
+                width: 100%;
+            }
+
+            &.vs-gallery-menu {
+                width: 100%;
+            }
+
+            li {
+                border: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org">
+<wicket:extend>
+    <div class="row text-center">
+        <div class="col-12">
+            <h3>Личные данные</h3>
+        </div>
+    </div>
+    <form wicket:id="form">
+
+        <div wicket:id="calculationPanel"></div>
+
+        <div class="row">
+            <div class="col-12">
+                <label class="form-label" wicket:for="contractNo">
+                    <wicket:label/>
+                </label>
+                <input type="text" class="form-control vs-input" wicket:id="contractNo"/>
+            </div>
+        </div>
+    </form>
+</wicket:extend>
+</html>

@@ -1,11 +1,16 @@
 package ru.virtu.systems;
 
+import org.apache.wicket.ConverterLocator;
+import org.apache.wicket.IConverterLocator;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.protocol.http.WebApplication;
 import org.apache.wicket.spring.injection.annot.SpringComponentInjector;
-import ru.virtu.systems.base.HeaderPage;
+import ru.virtu.systems.contract.ContractPage;
 import ru.virtu.systems.contract.ContractsPage;
 import ru.virtu.systems.resource.VSJS;
+import ru.virtu.systems.util.converter.LocalDateConverter;
+
+import java.time.LocalDate;
 
 /**
  * @author Alexey Pustohin
@@ -17,7 +22,7 @@ public class WicketApplication extends WebApplication
      */
     @Override
     public Class<? extends WebPage> getHomePage() {
-        return ContractsPage.class;
+        return HomePage.class;
     }
 
     /**
@@ -39,5 +44,14 @@ public class WicketApplication extends WebApplication
 
     private void mountPages() {
         mountPage("/contractsPage", ContractsPage.class);
+        mountPage("/contractPage", ContractPage.class);
+        mountPage("/homePage", HomePage.class);
+    }
+
+    @Override
+    protected IConverterLocator newConverterLocator() {
+        ConverterLocator locator = (ConverterLocator)super.newConverterLocator();
+        locator.set(LocalDate.class, new LocalDateConverter());
+        return locator;
     }
 }

@@ -1,10 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
 
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org" xml:lang="ru" lang="ru">
+<body>
+<wicket:extend>
+    <div class="row">
+        <div class="col-12 text-center">
+            <button class="btn vs-btn" style="margin-left: 5px;" wicket:id="openContract"><wicket:message key="openContract"/></button>
+            <button class="btn vs-btn" style="margin-left: 5px;" wicket:id="createContract"><wicket:message key="createContract"/></button>
+        </div>
+    </div>
+    <table class="table table-striped vs-table" wicket:id="contractTable"></table>
+</wicket:extend>
 </body>
 </html>

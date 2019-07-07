@@ -1,0 +1,102 @@
+.vs-modal-blocker {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    z-index: 100000;
+}
+
+.vs-modal-window {
+    background-color: $bg_color;
+    border: solid 1px $border_color;
+    position: fixed;
+    z-index: 100001;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+}
+
+.vs-modal-header {
+    padding: 10px 30px;
+    height: 40px;
+
+    .vs-modal-title {
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .vs-modal-close {
+        color: $text_color;
+        font-size: 20px;
+        margin-top: -0.2em;
+
+        &:hover {
+            color: $vs_main_gray_light;
+        }
+    }
+}
+
+/*
+    Размеры самих окон
+ */
+
+@media (min-width: $sm_trigger) {
+    .vs-modal-large,
+    .vs-modal-small {
+        width: 80vw;
+        height: 80vh;
+        left: 10vw;
+        top: 10vh;
+    }
+
+    .vs-modal-large-left {
+        width: 80vw;
+        height: 100vh;
+        left: 0;
+        top: 0;
+    }
+
+    .vs-modal-large-right {
+        width: 80vw;
+        height: 100vh;
+        left: 20vw;
+        top: 0;
+    }
+}
+
+@media (min-width: $md_trigger) {
+    .vs-modal-large {
+        width: 60vw;
+        height: 40vh;
+        left: 20vw;
+        top: 30vh;
+    }
+
+    .vs-modal-small {
+        width: 50vw;
+        height: auto;
+        left: 25vw;
+        top: 30vh;
+    }
+}
+
+/*
+    Content settings for different modal sizes
+ */
+
+.vs-modal-small {
+    .vs-modal-content {
+        padding: 20px 15px 10px 15px;
+        text-align: justify;
+    }
+
+    @media (min-width: $md_trigger) {
+        .vs-modal-content {
+            padding: 10px 30px;
+        }
+    }
+}
+
