@@ -3,4 +3,10 @@
 <properties>
     <entry key="sumInsured">Страховая сумма</entry>
     <entry key="dateInterval">Срок действия </entry>
+    <entry key="propertyType">Тип недвижимости</entry>
+    <entry key="constructionYear">Год постройки</entry>
+    <entry key="square">Площадь, кв.м.</entry>
+    <entry key="calculationDate">Дата расчета</entry>
+    <entry key="premium">Премия</entry>
+    <entry key="calculateButton">Рассчитать</entry>
 </properties>

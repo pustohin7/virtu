@@ -80,6 +80,15 @@ public abstract class BaseRowMapper<T> implements RowMapper<T> {
         return Arrays.asList((E[]) rs.getArray(columnLabel).getArray());
     }
 
+    protected final Date getDate(ResultSet rs, String columnLabel) throws SQLException {
+        Date date = rs.getDate(columnLabel);
+        if (date == null) {
+            return null;
+        }
+
+        return date;
+    }
+
     protected final LocalDate getLocalDate(ResultSet rs, String columnLabel) throws SQLException {
         Date date = rs.getDate(columnLabel);
         if (date == null) {

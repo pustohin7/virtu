@@ -24,12 +24,12 @@ public class VSTable<T extends Serializable> extends DataTable<T, String> {
     protected void onInitialize() {
         super.onInitialize();
 
-        addBottomToolbar(new StatelessPagingToolbar(this) {
+  /*      addBottomToolbar(new StatelessPagingToolbar(this) {
             @Override
             protected boolean scrollToTopAfterPageSwitch() {
                 return VSTable.this.scrollToTopAfterPageSwitch();
             }
-        });
+        });*/
         addTopToolbar(new HeadersToolbar<>(this, (ISortableDataProvider<T, String>) getDataProvider()));
         setOutputMarkupId(true);
     }

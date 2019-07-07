@@ -7,4 +7,6 @@
     <entry key="to">по</entry>
     <entry key="to.date">по</entry>
     <entry key="from.date">с</entry>
+    <entry key="interval.error.empty">Поля 'с ' и 'по ' обязательны для заполнения</entry>
+    <entry key="interval.error.year">Может быть указан период не более года</entry>
 </properties>

@@ -2,17 +2,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org">
 <body>
 <wicket:panel>
-    <title>Расчет</title>
+    <div class="row text-left">
+        <div class="col-12">
+            <h3>Расчет</h3>
+        </div>
+    </div>
     <form wicket:id="form">
         <div class="vs-feedback" wicket:id="feedback"></div>
 
         <div class="row">
             <div class="form-group row col-6">
-                <label class="fg-label" wicket:for="sumInsured">
+                <label class="fg-label col-sm-4" wicket:for="sumInsured">
                     <wicket:label/>
                 </label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control ft-input" wicket:id="sumInsured"/>
+                    <input type="text" class="form-control vs-input" wicket:id="sumInsured"/>
                 </div>
             </div>
              <div class="form-group row col-6">
@@ -24,10 +28,62 @@
         </div>
 
         <div class="row">
+            <div class="form-group row col-6">
+                <label class="fg-label col-sm-4" wicket:for="propertyType">
+                    <wicket:label/>
+                </label>
+                <div class="col-sm-6">
+                    <input class="form-control vs-input" wicket:id="propertyType" type="hidden"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group row col-6">
+                <label class="fg-label col-sm-4" wicket:for="constructionYear">
+                    <wicket:label/>
+                </label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control vs-input" wicket:id="constructionYear"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group row col-6">
+                <label class="fg-label col-sm-4" wicket:for="square">
+                    <wicket:label/>
+                </label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control vs-input" wicket:id="square"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
             <div class="col-12 text-center">
-                <button class="btn ft-btn ft-register-btn" wicket:id="submitButton">
-                  <!--  <wicket:message key="submitButton"/>--> PFfpf
+                <button class="btn vs-btn vs-register-btn" wicket:id="calculateButton">
+                    <wicket:message key="calculateButton"/>
                 </button>
+            </div>
+        </div>
+
+        <br>
+        <div class="row">
+            <div class="form-group row col-6">
+                <label class="fg-label col-sm-4">
+                   <wicket:message key="calculationDate"/>
+                </label>
+                <div class="col-sm-6" wicket:id="calculationDate"></div>
+            </div>
+
+            <div class="form-group row col-6">
+                <label class="fg-label col-sm-4" wicket:for="premium">
+                    <wicket:label/>
+                </label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control vs-input" wicket:id="premium"/>
+                </div>
             </div>
         </div>
     </form>

@@ -3,6 +3,7 @@ package ru.virtu.systems.dto;
 import ru.virtu.systems.dto.base.BaseEnity;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 /**
  * @author Alexey Pustohin
@@ -11,10 +12,11 @@ public class Insured extends BaseEnity {
     private String firstName;
     private String lastName;
     private String middleName;
-    private LocalDate birthDate;
-    private Long docNumber;
-    private Long docSerial;
-    private String summaryFio;
+    private Date birthDate;
+    private Integer docNumber;
+    private Integer docSerial;
+    private String insuredFio;
+    private String documentFull;
 
     public String getFirstName() {
         return firstName;
@@ -40,35 +42,43 @@ public class Insured extends BaseEnity {
         this.middleName = middleName;
     }
 
-    public LocalDate getBirthDate() {
+    public Date getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(LocalDate birthDate) {
+    public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
 
-    public Long getDocNumber() {
+    public Integer getDocNumber() {
         return docNumber;
     }
 
-    public void setDocNumber(Long docNumber) {
+    public void setDocNumber(Integer docNumber) {
         this.docNumber = docNumber;
     }
 
-    public Long getDocSerial() {
+    public Integer getDocSerial() {
         return docSerial;
     }
 
-    public void setDocSerial(Long docSerial) {
+    public void setDocSerial(Integer docSerial) {
         this.docSerial = docSerial;
     }
 
-    public String getSummaryFio() {
-        return summaryFio;
+    public String getInsuredFio() {
+        return insuredFio;
     }
 
-    public void setSummaryFio(String summaryFio) {
-        this.summaryFio = summaryFio;
+    public void setInsuredFio(String summaryFio) {
+        this.insuredFio = summaryFio;
+    }
+
+    public String getDocumentFull() {
+        return documentFull;
+    }
+
+    public void setDocumentFull(String documentFull) {
+        this.documentFull = documentFull;
     }
 }

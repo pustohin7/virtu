@@ -2,4 +2,6 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
     <entry key="contractNo">Номер договора</entry>
+    <entry key="createDate">Дата заключения</entry>
+    <entry key="additionalInfo">Комментарий</entry>
 </properties>

@@ -5,12 +5,14 @@ import org.apache.wicket.IConverterLocator;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.protocol.http.WebApplication;
 import org.apache.wicket.spring.injection.annot.SpringComponentInjector;
+import org.apache.wicket.util.convert.converter.DateConverter;
 import ru.virtu.systems.contract.ContractPage;
 import ru.virtu.systems.contract.ContractsPage;
 import ru.virtu.systems.resource.VSJS;
 import ru.virtu.systems.util.converter.LocalDateConverter;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 /**
  * @author Alexey Pustohin
@@ -51,7 +53,8 @@ public class WicketApplication extends WebApplication
     @Override
     protected IConverterLocator newConverterLocator() {
         ConverterLocator locator = (ConverterLocator)super.newConverterLocator();
-        locator.set(LocalDate.class, new LocalDateConverter());
+//        locator.set(Date.class, new LocalDateConverter());
+//        locator.set(Date.class, new DateConverter());
         return locator;
     }
 }

@@ -1,6 +1,5 @@
 package ru.virtu.systems.contract;
 
-import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxEventBehavior;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.extensions.markup.html.repeater.data.table.IColumn;
@@ -45,8 +44,8 @@ public class ContractsPage extends ContainerPage {
         List<IColumn<Contract, String>> columns = new ArrayList<>();
         columns.add(new PropertyColumn<>(Model.of("Серия-Номер"), "contractNo"));
         columns.add(new PropertyColumn<>(Model.of("Дата заключения"), "createDate"));
-        columns.add(new PropertyColumn<>(Model.of("Страхователь"), "insured.summaryFio"));
-        columns.add(new PropertyColumn<>(Model.of("Премия"), "premium"));
+        columns.add(new PropertyColumn<>(Model.of("Страхователь"), "insured.insuredFio"));
+        columns.add(new PropertyColumn<>(Model.of("Премия"), "calculation.premium"));
         columns.add(new PropertyColumn<>(Model.of("Срок действия"),"validaty"));
 
         ServiceProvider<Contract, BaseSC> contractProvider = new ServiceProvider<>(contractService, Model.of(new BaseSC()));
@@ -62,11 +61,6 @@ public class ContractsPage extends ContainerPage {
                                  selectedContract = (Contract)model.getObject( );
                                  target.add(openContract, createContract);
                              }
-
-                             @Override
-                             public boolean getStatelessHint(Component component) {
-                                 return true;
-                             }
                          }
                 );
                 return item;
@@ -79,6 +73,7 @@ public class ContractsPage extends ContainerPage {
                 super.onConfigure();
                 setEnabled(selectedContract != null);
             }
+
         };
         add(openContract);
         createContract = new VSAjaxLink("createContract", this::createContract);
@@ -86,7 +81,7 @@ public class ContractsPage extends ContainerPage {
     }
 
     private void createContract(AjaxRequestTarget target) {
-        setResponsePage(ContractPage.class);
+        setResponsePage(new ContractPage());
     }
 
     private void openContract(AjaxRequestTarget target) {

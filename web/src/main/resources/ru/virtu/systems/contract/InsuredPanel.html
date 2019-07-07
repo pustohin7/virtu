@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org">
+<body>
+<wicket:panel>
+    <div class="row text-left">
+        <div class="col-12">
+            <h3>Страхователь</h3>
+        </div>
+    </div>
+   <!-- <form wicket:id="form">
+        <div class="vs-feedback" wicket:id="feedback"></div>
+-->
+        <div class="row">
+            <div class="form-group row col-12">
+                <button class="btn vs-btn" wicket:id="selectInsured">
+                    <wicket:message key="selectInsured"/>
+                </button>
+                <label class="fg-label col-sm-1" wicket:for="insuredFio">
+                    <wicket:label/>
+                </label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control vs-input" wicket:id="insuredFio"/>
+                </div>
+                <button class="btn vs-btn" wicket:id="editInsured">
+                    <wicket:message key="editInsured"/>
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group row col-12">
+                <label class="fg-label col-sm-2" wicket:for="birthDate">
+                    <wicket:label/>
+                </label>
+                <div class="col-sm-2" wicket:id="birthDate"/>
+                <label class="fg-label col-sm-2">
+                    <wicket:message key="passport"/>
+                </label>
+                <label class="fg-label col-sm-1" wicket:for="docNumber">
+                    <wicket:label/>
+                </label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control vs-input" wicket:id="docNumber"/>
+                </div>
+                <label class="fg-label col-sm-1" wicket:for="docSerial">
+                    <wicket:label/>
+                </label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control vs-input" wicket:id="docSerial"/>
+                </div>
+            </div>
+        </div>
+</wicket:panel>
+</body>
+</html>

@@ -1,6 +1,5 @@
 package ru.virtu.systems.util.component.date;
 
-import org.apache.wicket.extensions.yui.calendar.DateField;
 import org.apache.wicket.markup.html.form.FormComponent;
 import org.apache.wicket.markup.html.form.FormComponentPanel;
 import org.apache.wicket.model.IModel;
@@ -18,28 +17,6 @@ import java.util.Date;
  * @author Alexey Pustohin
  */
 public class DateIntervalComponent extends FormComponentPanel<DateInterval> {
-
-/*    private DateField from;
-    private DateField to;
-
-    public DateIntervalComponent(String id) {
-        super(id);
-    }
-
-    public DateIntervalComponent(String id, IModel<DateInterval> model) {
-        super(id, model);
-    }
-
-    @Override
-    protected void onInitialize() {
-        super.onInitialize();
-        from = new DateField("from");
-        add(from);
-        to = new DateField("to");
-        add(to);
-    }*/
-
-
     protected FormComponent<Date> from;
     protected FormComponent<Date> to;
 
@@ -62,22 +39,10 @@ public class DateIntervalComponent extends FormComponentPanel<DateInterval> {
         to = newDateField("to", new Model<>());
         add(to);
 
-        final IValidator<DateInterval> validator = newDefaultValidator();
+        final IValidator<DateInterval> validator = new DateIntervalValidator();
         if(validator != null) {
             add(validator);
         }
-    }
-
-    protected IValidator<DateInterval> newDefaultValidator() {
-        return new DateIntervalBoundsValidator();
-    }
-
-    public FormComponent<Date> getFrom() {
-        return from;
-    }
-
-    public FormComponent<Date> getTo() {
-        return to;
     }
 
     @Override
@@ -106,7 +71,6 @@ public class DateIntervalComponent extends FormComponentPanel<DateInterval> {
         setConvertedInput(interval);
     }
 
-
     @Override
     public void updateModel() {
         DateInterval edited = getConvertedInput();
@@ -122,60 +86,44 @@ public class DateIntervalComponent extends FormComponentPanel<DateInterval> {
         super.updateModel();
     }
 
-
-    /*
-     * Фабричный метод для создания компоненты редактирования даты.
-     * По умолчанию возвращает компонент с ограниченем даты не больше сегодняшней.
-     *
-     * @param id    ид компонента
-     * @param model модель
-     * @return компонент редактирования даты
-      */
-    protected FormComponent<Date> newDateField(String id, IModel<Date> model) {
-        return new DateField(id, model).setRequired(DateIntervalComponent.this.isRequired());
+    private FormComponent<Date> newDateField(String id, IModel<Date> model) {
+        return new VSDateField(id, model).setRequired(DateIntervalComponent.this.isRequired());
     }
 
-    /**
-     * Выполняет проверку на то что значение 'с' не больше 'по'
-     */
-    private class DateIntervalBoundsValidator implements IValidator<DateInterval> {
-        private static final long serialVersionUID = 2848256289590917121L;
+    private class DateIntervalValidator implements IValidator<DateInterval> {
 
         @Override
         public void validate(IValidatable<DateInterval> validatable) {
             DateInterval interval = validatable.getValue();
+            LocalDate dateFrom = dateToLocalDate(interval.getFrom());
+            LocalDate dateTo = dateToLocalDate(interval.getTo());
 
-            if (isDateFromAfterDateTo(interval.getFrom(), interval.getTo())) {
-
+            if (dateFrom == null || dateTo == null) {
+                ValidationError error = new ValidationError();
+                error.addKey("interval.error.empty");
+                validatable.error(error);
+                return;
+            }
+            if (isDateFromAfterDateTo(dateFrom, dateTo)) {
                 ValidationError error = new ValidationError();
                 error.addKey(DateIntervalComponent.class.getSimpleName())
-                        .setVariable("from", extractLabel(DateIntervalComponent.this.from.getLabel()))
-                        .setVariable("to", extractLabel(DateIntervalComponent.this.to.getLabel()));
+                        .setVariable("from", getString("from"))
+                        .setVariable("to", getString("to"));
                 validatable.error(error);
             }
+            if (dateTo.minusYears(1L).isAfter(dateFrom)) {
+                ValidationError error = new ValidationError();
+                error.addKey("interval.error.year");
+                validatable.error(error);
+            }
+
         }
 
-        private boolean isDateFromAfterDateTo(Date from, Date to) {
-            LocalDate dateFrom = from != null ? from.toInstant().atZone(ZoneId.systemDefault()).toLocalDate() : null;
-            LocalDate dateTo = to != null ? to.toInstant().atZone(ZoneId.systemDefault()).toLocalDate() : null;
-            return dateFrom != null && dateTo != null && dateFrom.isAfter(dateTo);
+        private boolean isDateFromAfterDateTo(LocalDate from, LocalDate to) {
+            return from != null && to != null && from.isAfter(to);
         }
-
-        private String extractLabel(IModel<String> label) {
-            return label != null ? label.getObject() : null;
+        private LocalDate dateToLocalDate(Date date) {
+            return date != null ? date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate() : null;
         }
     }
-
-/*    public class IntervalDatePicker extends PtsLocalDatePicker {
-        public IntervalDatePicker(String id, IModel<LocalDate> model) {
-            super(id, model);
-        }
-
-        @Override
-        protected void onConfigure() {
-            super.onConfigure();
-            setRequired(DateIntervalComponent.this.isRequired());
-        }
-
-    }*/
 }

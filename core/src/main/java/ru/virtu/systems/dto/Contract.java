@@ -2,31 +2,32 @@ package ru.virtu.systems.dto;
 
 import ru.virtu.systems.dto.base.BaseEnity;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Date;
 
 /**
  * @author Alexey Pustohin
  */
 public class Contract extends BaseEnity {
-    private String contractNo;
+    private Integer contractNo;
     private Insured insured;
-    private BigDecimal premium;
-    private LocalDate createDate;
+//    private BigDecimal premium;
+    private Date createDate;
     private LocalDate dateFrom;
     private LocalDate dateTo;
     private String validaty;
     private Calculation calculation;
+    private String additionalInfo;
 
 
     /**
      * Номер договора
      */
-    public String getContractNo() {
+    public Integer getContractNo() {
         return contractNo;
     }
 
-    public void setContractNo(String contractNo) {
+    public void setContractNo(Integer contractNo) {
         this.contractNo = contractNo;
     }
 
@@ -41,25 +42,25 @@ public class Contract extends BaseEnity {
         this.insured = insured;
     }
 
-    /**
+/*    *//**
      * Премия
-     */
+     *//*
     public BigDecimal getPremium() {
         return premium;
     }
 
     public void setPremium(BigDecimal premium) {
         this.premium = premium;
-    }
+    }*/
 
     /**
      * Дата заключения
      */
-    public LocalDate getCreateDate() {
+    public Date getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(LocalDate createDate) {
+    public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
 
@@ -99,5 +100,13 @@ public class Contract extends BaseEnity {
 
     public void setCalculation(Calculation calculation) {
         this.calculation = calculation;
+    }
+
+    public String getAdditionalInfo() {
+        return additionalInfo;
+    }
+
+    public void setAdditionalInfo(String additionalInfo) {
+        this.additionalInfo = additionalInfo;
     }
 }

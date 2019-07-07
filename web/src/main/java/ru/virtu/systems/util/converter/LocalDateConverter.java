@@ -6,13 +6,15 @@ import org.apache.wicket.util.lang.Args;
 import org.apache.wicket.util.string.Strings;
 
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.Locale;
 
 /**
  * @author Alexey Pustohin
  */
-public class LocalDateConverter implements IConverter<LocalDate> {
+public class LocalDateConverter implements IConverter<Date> {
 
     private final DateTimeFormatter formatter;
     private final String pattern;
@@ -26,16 +28,18 @@ public class LocalDateConverter implements IConverter<LocalDate> {
         this.formatter = DateTimeFormatter.ofPattern(pattern);
     }
 
-    protected LocalDate doConvertToObject(String value, Locale locale) {
-        return LocalDate.parse(value, this.formatter);
+    protected Date doConvertToObject(String value, Locale locale) {
+        LocalDate localDate = LocalDate.parse(value, this.formatter);
+
+        return Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
     }
 
-    protected String doConvertToString(LocalDate value, Locale locale) {
-        return this.formatter.format(value);
+    protected String doConvertToString(Date value, Locale locale) {
+        return this.formatter.format(value.toInstant());
     }
 
     @Override
-    public LocalDate convertToObject(String value, Locale locale) throws ConversionException {
+    public Date convertToObject(String value, Locale locale) throws ConversionException {
         if (Strings.isEmpty(value)) {
             return null;
         } else {
@@ -48,7 +52,7 @@ public class LocalDateConverter implements IConverter<LocalDate> {
     }
 
     @Override
-    public String convertToString(LocalDate localDate, Locale locale) {
+    public String convertToString(Date localDate, Locale locale) {
         try {
             return this.doConvertToString(localDate, locale);
         } catch (RuntimeException var4) {

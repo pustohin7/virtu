@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <entry key="lastName">Фамилия</entry>
+    <entry key="firstName">Имя</entry>
+    <entry key="middleName">Отчество</entry>
+    <entry key="birthDate">Дата рождения</entry>
+    <entry key="birthDate.date">Дата рождения</entry>
+    <entry key="docSerial">Серия</entry>
+    <entry key="docNumber">Номер</entry>
+    <entry key="passport">Паспорт</entry>
+    <entry key="fio">ФИО</entry>
+</properties>
