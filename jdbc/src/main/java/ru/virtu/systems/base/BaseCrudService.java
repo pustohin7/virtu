@@ -23,7 +23,6 @@ public interface BaseCrudService<T extends BaseEnity> extends CrudService<T>, Re
     @Override
     @Transactional(readOnly = true)
     default Optional<T> get(String code) {
-        // TODO Ну вот это очень грубо. Во многих таблицах нету кода. Но это очень удобно. Надо подумать, как сделать лучше.
         SqlQuery query = new SqlQuery("select * from " + getTableName()).eq("code", code);
         return getJdbcTemplate().queryForOptional(query, getRowMapper());
     }

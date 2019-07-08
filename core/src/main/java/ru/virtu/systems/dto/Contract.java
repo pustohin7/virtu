@@ -11,13 +11,13 @@ import java.util.Date;
 public class Contract extends BaseEnity {
     private Integer contractNo;
     private Insured insured;
-//    private BigDecimal premium;
     private Date createDate;
     private LocalDate dateFrom;
     private LocalDate dateTo;
     private String validaty;
     private Calculation calculation;
     private String additionalInfo;
+    private Address address;
 
 
     /**
@@ -108,5 +108,13 @@ public class Contract extends BaseEnity {
 
     public void setAdditionalInfo(String additionalInfo) {
         this.additionalInfo = additionalInfo;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }

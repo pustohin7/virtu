@@ -1,7 +1,7 @@
 .vs-input {
     border-radius: 0;
     border: solid 1px $border_color;
-    margin-bottom: 1rem;
+    //margin-bottom: 1rem;
 
     a.select2-choice {
         border: none;
@@ -204,12 +204,11 @@
     pointer-events: none;
 }
 
-.fg-label.required {
-    //content: " *";
+.cal-label.required {
     color: $error_color
 }
-
-/*
-.fg-label.error {
-    color: $color-text-error;
-}*/
+.lb-center {
+    text-align: center;
+    display: block;
+    font-size: 14px;
+}

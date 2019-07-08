@@ -43,7 +43,8 @@ public class InsuredRowMapper extends BaseRowMapper<Insured> {
                 .append(StringUtils.SPACE)
                 .append(getString(resultSet, "first_name"))
                 .append(StringUtils.SPACE)
-                .append(getString(resultSet, "middle_name"));
+                .append(getString(resultSet, "middle_name") != null ?
+                        getString(resultSet, "middle_name") : StringUtils.EMPTY);
 
         return builder.toString();
     }

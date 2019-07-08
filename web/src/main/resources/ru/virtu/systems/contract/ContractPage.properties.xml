@@ -3,6 +3,16 @@
 <properties>
     <entry key="contractNo">Номер договора</entry>
     <entry key="createDate">Дата заключения</entry>
+    <entry key="address.country">государство</entry>
+    <entry key="address.region">республика, край, область</entry>
+    <entry key="address.district">район</entry>
+    <entry key="address.city">населенный пункт</entry>
+    <entry key="address.street">улица</entry>
+    <entry key="address.house">дом</entry>
+    <entry key="address.postcode">Индекс</entry>
+    <entry key="address.apartment">квартира</entry>
+    <entry key="address.letter">строение</entry>
+    <entry key="address.housing">корпус</entry>
     <entry key="additionalInfo">Комментарий</entry>
     <entry key="insured.required">'Страхователь' обязателен к заполнению</entry>
 </properties>

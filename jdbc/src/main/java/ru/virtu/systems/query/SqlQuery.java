@@ -58,7 +58,7 @@ public class SqlQuery implements Serializable {
         // Добавляем вложенные запросы в предложение from
         if (!nestedQueries.isEmpty()) {
             String prefix;
-            if (!query.contains("from")) { // TODO Такая себе проверка
+            if (!query.contains("from")) {
                 prefix = " from (";
             } else {
                 prefix = ", (";
@@ -131,7 +131,6 @@ public class SqlQuery implements Serializable {
     }
 
     private Object modifyArgument(Object argument) {
-        // TODO Не снижает ли эта фигня производиельность?
         if (argument instanceof Codable) {
             return ((Codable) argument).getCode();
         }

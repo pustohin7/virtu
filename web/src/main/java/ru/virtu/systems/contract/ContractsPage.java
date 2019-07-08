@@ -58,11 +58,20 @@ public class ContractsPage extends ContainerPage {
                 item.add(new AjaxEventBehavior("click") {
                              @Override
                              protected void onEvent(AjaxRequestTarget target) {
-                                 selectedContract = (Contract)model.getObject( );
+                                 selectedContract = (Contract)model.getObject();
                                  target.add(openContract, createContract);
                              }
                          }
                 );
+                item.add(new AjaxEventBehavior("ondblclick") {
+                    @Override
+                    protected void onEvent(AjaxRequestTarget target) {
+                        Contract contract = (Contract)model.getObject();
+                        PageParameters pageParameters = new PageParameters();
+                        pageParameters.add("id", contract.getId());
+                        setResponsePage(ContractPage.class, pageParameters);
+                    }
+                });
                 return item;
             }
         };
