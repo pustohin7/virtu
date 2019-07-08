@@ -19,14 +19,13 @@ body {
 .vs-main-container {
     padding-top: 15px;
     padding-bottom: 45px;
-    min-height: calc(100vh - 339px); // TODO May be changed due to catalog count in bottom
+    min-height: calc(100vh - 339px);
 }
 
 /*
     Common classes
  */
 
-// TODO May we generate this with scss?
 .mrgn-btm-15 {
     margin-bottom: 15px;
 }
