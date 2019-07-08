@@ -9,4 +9,5 @@
     <entry key="from.date">с</entry>
     <entry key="interval.error.empty">Поля 'с ' и 'по ' обязательны для заполнения</entry>
     <entry key="interval.error.year">Может быть указан период не более года</entry>
+    <entry key="interval.error.min">'Срок действия полиса с' должен быть >= текущей дате</entry>
 </properties>

@@ -116,6 +116,12 @@ public class DateIntervalComponent extends FormComponentPanel<DateInterval> {
                 error.addKey("interval.error.year");
                 validatable.error(error);
             }
+            if (LocalDate.now().isAfter(dateFrom)) {
+                ValidationError error = new ValidationError();
+                error.addKey("interval.error.min");
+                validatable.error(error);
+            }
+
 
         }
 
