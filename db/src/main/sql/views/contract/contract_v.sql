@@ -22,7 +22,17 @@ create or replace view contract.contract_v as
     pt.code as property_type_code,
     pt.name as property_type_name,
     c.calculation_date,
-    c.additional_info
+    c.additional_info,
+    c.country,
+    c.region,
+    c.district,
+    c.city,
+    c.street,
+    c.postcode,
+    c.housing,
+    c.letter,
+    c.house,
+    c.apartment
 
     from contract.contract c
     join nsi.insured i on c.insured_id = i.id

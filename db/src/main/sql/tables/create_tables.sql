@@ -44,7 +44,18 @@ create table contract.contract (
   square              double precision not null,
   construction_year   integer not null,
   calculation_date    date not null,
-  additional_info      varchar(500),
+  additional_info     varchar(500),
+  country             varchar(50) not null,
+  region              varchar(100) not null,
+  district            varchar(100),
+  city                varchar(50) not null,
+  street              varchar(150) not null,
+  house               integer,
+  apartment           integer not null,
+  postcode            varchar(15),
+  letter              varchar(15),
+  housing             varchar(15),
+
 
   constraint contract_insured_fk foreign key (insured_id) references nsi.insured(id),
   constraint contract_property_type_fk foreign key (property_type_id) references nsi.property_type(id)
@@ -60,6 +71,15 @@ comment on column contract.contract.create_date is 'Дата заключени�
 comment on column contract.contract.premium is 'Премия';
 comment on column contract.contract.insured_sum is 'Сумма страхования';
 comment on column contract.contract.square is 'Площадь';
-comment on column contract.contract.construction_year is 'Год постройки';
+comment on column contract.contract.country is 'Страна';
+comment on column contract.contract.region is 'Регион';
+comment on column contract.contract.district is 'Район';
+comment on column contract.contract.city is 'Населенный пункт';
+comment on column contract.contract.street is 'Улица';
+comment on column contract.contract.house is 'Дом';
+comment on column contract.contract.postcode is 'Индекс';
+comment on column contract.contract.housing is 'Корпус';
+comment on column contract.contract.apartment is 'Квартира';
+comment on column contract.contract.letter is 'Строение';
 
 -------------------------------------------------------

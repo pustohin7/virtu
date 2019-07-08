@@ -2,6 +2,7 @@ package ru.virtu.systems.contract;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.markup.html.form.Form;
+import org.apache.wicket.markup.html.form.RequiredTextField;
 import org.apache.wicket.markup.html.form.TextArea;
 import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.model.CompoundPropertyModel;
@@ -69,6 +70,18 @@ public class ContractPage extends ContainerPage {
 
         form.add(new TextField<>("contractNo").setRequired(true).add(new IValidator[]{new ContractNumberValidator()}));
         form.add(new VSDateField("createDate").setEnabled(false));
+
+
+        form.add(new RequiredTextField("address.country"));
+        form.add(new RequiredTextField<>("address.region"));
+        form.add(new TextField<>("address.district"));
+        form.add(new RequiredTextField<>("address.city"));
+        form.add(new RequiredTextField<>("address.street"));
+        form.add(new TextField<>("address.house"));
+        form.add(new TextField<>("address.postcode"));
+        form.add(new RequiredTextField<>("address.apartment"));
+        form.add(new TextField<>("address.letter"));
+        form.add(new TextField<>("address.housing"));
 
         form.add(new TextArea<>("additionalInfo"));
 

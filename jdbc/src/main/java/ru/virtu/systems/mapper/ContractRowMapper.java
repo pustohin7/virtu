@@ -2,10 +2,7 @@ package ru.virtu.systems.mapper;
 
 import org.springframework.lang.Nullable;
 import ru.virtu.systems.base.BaseRowMapper;
-import ru.virtu.systems.dto.Calculation;
-import ru.virtu.systems.dto.Contract;
-import ru.virtu.systems.dto.Insured;
-import ru.virtu.systems.dto.PropertyType;
+import ru.virtu.systems.dto.*;
 import ru.virtu.systems.dto.base.DateInterval;
 
 import java.sql.ResultSet;
@@ -31,8 +28,24 @@ public class ContractRowMapper extends BaseRowMapper<Contract> {
         contract.setValidaty(getString(resultSet, "validaty"));
         contract.setCalculation(mapCalculation(resultSet));
         contract.setAdditionalInfo(getString(resultSet, "additional_info"));
+        contract.setAddress(mapAddress(resultSet));
 
         return contract;
+    }
+
+    private Address mapAddress(ResultSet resultSet) throws SQLException {
+        Address address = new Address();
+        address.setApartment(getInt(resultSet, "apartment"));
+        address.setCity(getString(resultSet, "city"));
+        address.setCountry(getString(resultSet,"country"));
+        address.setRegion(getString(resultSet, "region"));
+        address.setDistrict(getString(resultSet, "district"));
+        address.setStreet(getString(resultSet, "street"));
+        address.setHouse(getInt(resultSet, "house"));
+        address.setPostcode(getString(resultSet, "postcode"));
+        address.setHousing(getString(resultSet, "housing"));
+        address.setLetter(getString(resultSet, "letter"));
+        return address;
     }
 
     private Calculation mapCalculation(ResultSet resultSet) throws SQLException {

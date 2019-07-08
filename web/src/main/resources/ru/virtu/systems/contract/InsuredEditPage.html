@@ -7,33 +7,40 @@
             <div class="vs-feedback" wicket:id="feedback"></div>
             <div class="row">
                 <div class="form-group row col-12">
-                    <label class="fg-label col-sm-1" wicket:for="lastName">
-                        <wicket:label/>
+                    <label class="fg-label col-sm-1" >
+                        <wicket:message key="fio"/>
                     </label>
-                    <div class="col-sm-2">
+                    <div class="col-sm-3">
                         <input type="text" class="form-control vs-input" wicket:id="lastName"/>
+                        <label class="lb-center" wicket:for="lastName">
+                            <wicket:label/>
+                        </label>
                     </div>
-                    <label class="fg-label col-sm-1" wicket:for="firstName">
-                        <wicket:label/>
-                    </label>
-                    <div class="col-sm-2">
+                    <div class="col-sm-3">
                         <input type="text" class="form-control vs-input" wicket:id="firstName"/>
+                        <label class="lb-center" wicket:for="firstName">
+                            <wicket:label/>
+                        </label>
                     </div>
-                    <label class="fg-label col-sm-2" wicket:for="middleName">
-                        <wicket:label/>
-                    </label>
-                    <div class="col-sm-2">
+                    <div class="col-sm-3">
                         <input type="text" class="form-control vs-input" wicket:id="middleName"/>
+                        <label class="lb-center" wicket:for="middleName">
+                            <wicket:label/>
+                        </label>
                     </div>
                 </div>
             </div>
 
             <div class="row">
-                <div class="form-group row col-12">
-                    <label class="fg-label col-sm-2" wicket:for="birthDate">
+                <div class="form-group row col-6">
+                    <label class="fg-label col-sm-6" wicket:for="birthDate">
                         <wicket:label/>
                     </label>
-                    <div class="col-sm-2" wicket:id="birthDate"/>
+                    <div class="col-sm-6" wicket:id="birthDate"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group row col-12">
                     <label class="fg-label col-sm-2">
                         <wicket:message key="passport"/>
                     </label>
