@@ -88,11 +88,11 @@
             <artifactId>wicketstuff-tinymce4</artifactId>
             <version>${wicket.version}</version>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>com.googlecode.wicket-jquery-ui</groupId>
             <artifactId>wicket-jquery-ui-core</artifactId>
             <version>8.1.0</version>
-        </dependency>
+        </dependency>-->
     </dependencies>
 
     <build>
@@ -151,7 +151,8 @@
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
-                <version>9.3.14.v20161028</version>
+                <!--<version>9.3.14.v20161028</version>-->
+                <version>9.4.0.M0</version>
                 <configuration>
                     <stopKey>stop</stopKey>
                     <stopPort>9998</stopPort>

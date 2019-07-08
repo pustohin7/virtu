@@ -35,6 +35,7 @@ public class InsuredServiceImpl extends BaseService implements InsuredService, B
     }
 
     @Override
+    @Transactional
     public Insured save(Insured insured) {
         Long id;
         if (insured.isNew()) {

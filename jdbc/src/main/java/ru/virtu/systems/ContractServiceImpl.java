@@ -46,6 +46,7 @@ public class ContractServiceImpl extends BaseService implements ContractService,
     }
 
     @Override
+    @Transactional
     public Contract save(Contract contract) {
         Long id;
         Calculation calculation = contract.getCalculation();
