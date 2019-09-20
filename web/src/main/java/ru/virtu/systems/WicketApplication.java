@@ -53,8 +53,7 @@ public class WicketApplication extends WebApplication
     @Override
     protected IConverterLocator newConverterLocator() {
         ConverterLocator locator = (ConverterLocator)super.newConverterLocator();
-//        locator.set(Date.class, new LocalDateConverter());
-//        locator.set(Date.class, new DateConverter());
-        return locator;
+        locator.set(Date.class, new LocalDateConverter());
+            return locator;
     }
 }

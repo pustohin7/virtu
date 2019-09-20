@@ -73,7 +73,7 @@ public class ContractPage extends ContainerPage {
 
 
         form.add(new RequiredTextField("address.country"));
-        form.add(new RequiredTextField<>("address.region"));
+        form.add(new RequiredTextField<String>("address.region"));
         form.add(new TextField<>("address.district"));
         form.add(new RequiredTextField<>("address.city"));
         form.add(new RequiredTextField<>("address.street"));
